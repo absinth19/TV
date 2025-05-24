@@ -683,7 +683,8 @@ def eventi_m3u8_generator_world():
                 f.write(f'#EXTINF:-1 tvg-name="{category}" group-title="Eventi Live",--- {category} ---\nhttps://example.m3u8\n\n') 
       
                 for ch in channels: 
-                    tvg_name = ch["tvg_name"] 
+                    tvg_name = ch["tvg_name"]
+                    channel_name = ch["channel_name"]
                     channel_id = ch["channel_id"] 
                     event_title = ch["event_title"] 
                     
@@ -696,7 +697,7 @@ def eventi_m3u8_generator_world():
       
                     stream_url = (f"{MFP_IP}/extractor/video?host=DLHD&d={LINK_DADDY}/embed/stream-{channel_id}.php" 
                                   f"&redirect_stream=true&api_password={MFP_PASSWORD}")                
-                    f.write(f'#EXTINF:-1 tvg-id="{channel_id}" tvg-name="{tvg_name}"{logo_attribute} group-title="Eventi Live",{tvg_name}\n{stream_url}\n\n') 
+                    f.write(f'#EXTINF:-1 tvg-id="{channel_id}" tvg-name="{tvg_name}"{logo_attribute} group-title="Eventi Live",{tvg_name} ({channel_name})\n{stream_url}\n\n') 
                     print(f"[✓] {tvg_name}" + (f" (logo trovato)" if logo_url else " (nessun logo trovato)")) 
       
     if __name__ == "__main__": 
@@ -1163,7 +1164,8 @@ def eventi_m3u8_generator():
                 f.write(f'#EXTINF:-1 tvg-name="{category}" group-title="Eventi Live",--- {category} ---\nhttps://example.m3u8\n\n') 
       
                 for ch in channels: 
-                    tvg_name = ch["tvg_name"] 
+                    tvg_name = ch["tvg_name"]
+                    channel_name = ch["channel_name"]
                     channel_id = ch["channel_id"] 
                     event_title = ch["event_title"] 
                     
@@ -1176,7 +1178,7 @@ def eventi_m3u8_generator():
       
                     stream_url = (f"{MFP_IP}/extractor/video?host=DLHD&d={LINK_DADDY}/embed/stream-{channel_id}.php" 
                                   f"&redirect_stream=true&api_password={MFP_PASSWORD}")                     
-                    f.write(f'#EXTINF:-1 tvg-id="{channel_id}" tvg-name="{tvg_name}"{logo_attribute} group-title="Eventi Live",{tvg_name}\n{stream_url}\n\n') 
+                    f.write(f'#EXTINF:-1 tvg-id="{channel_id}" tvg-name="{tvg_name}"{logo_attribute} group-title="Eventi Live",{tvg_name} ({channel_name})\n{stream_url}\n\n') 
                     print(f"[✓] {tvg_name}" + (f" (logo trovato)" if logo_url else " (nessun logo trovato)")) 
       
     if __name__ == "__main__": 
